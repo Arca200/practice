@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://bf0yuue48pk6v"]
 
 [ext_resource type="PackedScene" uid="uid://ca106qafnt25o" path="res://scenes/player.tscn" id="1_e6yxx"]
+[ext_resource type="Texture2D" uid="uid://b6mxpn28vbuew" path="res://graphics/plants/apple.png" id="2_yqjtg"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=810758764]
 
-[node name="Objects" type="Node2D" parent="."]
+[node name="Objects" type="Node2D" parent="." unique_id=2036723232]
 y_sort_enabled = true
 
-[node name="Player" parent="Objects" instance=ExtResource("1_e6yxx")]
+[node name="Sprite2D2" type="Sprite2D" parent="Objects" unique_id=1443464457]
+position = Vector2(55, 37)
+scale = Vector2(10, 10)
+texture = ExtResource("2_yqjtg")
+
+[node name="Player" parent="Objects" unique_id=823820488 instance=ExtResource("1_e6yxx")]
