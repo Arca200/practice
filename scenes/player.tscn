@@ -816,6 +816,8 @@ states/move/position = Vector2(569.5, 99.5)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_smehm"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_g2els"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_qhqgy")]
 graph_offset = Vector2(64, -28)
 
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_g2els"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yewv4"]
 animation = &"axe_left"
 
@@ -964,18 +966,21 @@ transitions = ["Start", "hoe", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(277.64008, -123.01749)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6eyoc"]
-graph_offset = Vector2(-105.60745, -31.239685)
-nodes/output/position = Vector2(656, 192)
+graph_offset = Vector2(-117.605255, 47.79509)
+nodes/output/position = Vector2(720, 180)
 nodes/ToolStateMachine/node = SubResource("AnimationNodeStateMachine_vwwfy")
-nodes/ToolStateMachine/position = Vector2(-10, 210)
+nodes/ToolStateMachine/position = Vector2(180, 320)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_dqkch")
-nodes/MoveStateMachine/position = Vector2(270, 50)
-node_connections = [&"output", 0, &"MoveStateMachine"]
+nodes/MoveStateMachine/position = Vector2(180, 60)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_g2els")
+nodes/OneShot/position = Vector2(480, 170)
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"MoveStateMachine", &"OneShot", 1, &"ToolStateMachine"]
 
 [node name="Player" type="CharacterBody2D" unique_id=823820488 groups=["Player"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_g2els")
+move_speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=456037608]
 texture = ExtResource("2_yewv4")
@@ -996,6 +1001,9 @@ parameters/ToolStateMachine/hoe/blend_position = Vector2(-0.00261289, -0.988525)
 parameters/ToolStateMachine/water/blend_position = Vector2(0, 0)
 parameters/MoveStateMachine/idle/blend_position = Vector2(0, 0)
 parameters/MoveStateMachine/move/blend_position = Vector2(0, 0)
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1590771639]
 zoom = Vector2(3, 3)
